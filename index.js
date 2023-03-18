@@ -11,11 +11,6 @@ app.use(express.static(__dirname + '/client'))
 
 // redirecting so the default page will be the home page
 app.get('/', (req, res) => {
-	res.redirect('/home')
-});
-
-// this will be the home page
-app.get('/home', (req, res) => {
 	res.sendFile(__dirname + '/client/index.html')
 });
 
