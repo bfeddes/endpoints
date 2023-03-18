@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 // this will be the home page
 app.get('/home', (req, res) => {
-	res.sendFile(__dirname + '/index.html')
+	res.sendFile(__dirname + '/client/index.html')
 });
 
 // getting all movies and shows from all streaming services
