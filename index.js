@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 
 const app = express();
 
-const uri = 'mongodb+srv://brianfeddes:NetflixPassword@netflixdatabase.m4ijrna.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://brianfeddes:NetflixPassword@netflixdatabase.m4ijrna.mongodb.net/NetflixDatabase';
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get('/', async (req, res) => {
@@ -20,6 +20,12 @@ app.get('/', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+const port = process.env.PORT || 3000
+app.get('/test', function(request, response) {
+	response.type('text/plain')
+	response.send('Node.js and Express running on port='+port)
+})
+
+app.listen(port, function() {
+	console.log("Server is running at http://localhost:3000/")
+})
